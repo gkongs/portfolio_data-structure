@@ -2,7 +2,7 @@
 #include <iostream>
 #include <functional>
 using namespace std;
-// ÀÌÁø Æ®¸® [ ¼øÈ¸½Ã °ª Ãâ·Â ]
+// ì¤‘ìœ„Â ìˆœíšŒë¥¼ í†µí•´ ê°’ì„ ì¶œë ¥í•˜ëŠ” ì´ì§„íŠ¸ë¦¬ (Default_Pred ë©¤ë²„ í•¨ìˆ˜ë¥¼Â ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬ë˜ë„ë¡ í•˜ì˜€ìŠµë‹ˆë‹¤.)
 template <class T>
 class MyBTree
 {
@@ -24,7 +24,7 @@ public:
 	~MyBTree(){
 		Internal_Clear(root);
 	}
-	// ³ëµå Ãß°¡
+	// ë…¸ë“œ ì¶”ê°€
 	bool Insert(const T& _val) {
 		if (root == nullptr) {
 			root = new Node(_val);
@@ -36,15 +36,15 @@ public:
 		++size;
 		return Internal_Insert(root, _val);
 	}
-	// ÁßÀ§ ¼øÈ¸
+	// ì¤‘ìœ„ ìˆœíšŒ
 	void Traverse_in_order() {
 		Internal_traverse_in_order(root);
 	}
-	// ¸ğµç ³ëµå »èÁ¦
+	// ëª¨ë“  ë…¸ë“œ ì‚­ì œ
 	void Clear() { 
 		Internal_Clear(root);
 	}
-	// Å©±â ¹İÈ¯
+	// í¬ê¸° ë°˜í™˜
 	const size_t SIZE() const {
 		return size;
 	}
@@ -55,7 +55,7 @@ private:
 		else
 			return false;
 	}
-	// [Wrapper] ³ëµå Ãß°¡
+	// [Wrapper] ë…¸ë“œ ì¶”ê°€
 	bool Internal_Insert(Node*& _cur, const T& _val) {
 
 		if (_cur == nullptr) {
@@ -64,14 +64,14 @@ private:
 			_cur->right = nullptr;
 			return true;
 		}
-		else if ((pred(_cur->val, _val)) == true) { // TRUE ÀÏ °æ¿ì LEFT
+		else if ((pred(_cur->val, _val)) == true) { // TRUE ì¼ ê²½ìš° LEFT
 			return Internal_Insert(_cur->left, _val);
 		}
-		else {										 // FALSE ÀÏ °æ¿ì RIGHT
+		else {										 // FALSE ì¼ ê²½ìš° RIGHT
 			return Internal_Insert(_cur->right, _val);
 		}
 	}
-	// [Wrapper] ÁßÀ§ ¼øÈ¸
+	// [Wrapper] ì¤‘ìœ„ ìˆœíšŒ
 	void Internal_traverse_in_order(Node *_cur) {
 		if (_cur == nullptr) {
 			return;
@@ -80,7 +80,7 @@ private:
 		cout << _cur->val << endl;
 		Internal_traverse_in_order(_cur->right);
 	}
-	// [Wrapper] ¸ğµç ³ëµå »èÁ¦
+	// [Wrapper] ëª¨ë“  ë…¸ë“œ ì‚­ì œ
 	void Internal_Clear(Node *_cur) {
 		if (_cur == nullptr) 
 			return;
