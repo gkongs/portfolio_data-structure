@@ -1,6 +1,6 @@
 #pragma once
 template <class T>
-class MyQuickSort // Äü Á¤·Ä
+class MyQuickSort // í€µ ì •ë ¬
 {
 public:
 	MyQuickSort(T* _arr,  size_t _left ,  size_t _right)
@@ -50,7 +50,7 @@ private:
 		Swap(_left, high);
 		return high;
 	}
-	void Sort(int _left, int _right) { //Á¤·Ä
+	void Sort(int _left, int _right) { 
 		if (_left <= _right) {
 			p_idx = Partition(_left, _right);
 			Sort(_left, p_idx - 1);
