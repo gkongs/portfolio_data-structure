@@ -9,7 +9,6 @@ public:
 	~MyHeap() { 
 		delete arr; 
 	}
-	// 삽입
 	void Insert(const T& _val) {
 		if ((size + 1) == capacity) {
 			T *old_arr = arr;
@@ -21,7 +20,6 @@ public:
 		arr[++size] = _val;
 		push_val_heap(size);
 	}
-	// 삭제
 	void Remove() {
 		int parent_idx, l_child_idx, r_child_idx;
 		parent_idx = 1;
@@ -61,7 +59,6 @@ public:
 		return size;
 	}
 private:
-	// capacity 할당
 	const size_t alloc_capacity() {
 		if (size > 7) {
 			capacity = capacity + (capacity / 2);
